@@ -6,8 +6,9 @@ yum -y update
 # individual setting
 H=home/ec2-user
 cd /tmp
-wget https://nachashin.github.io/ec2_init.tgz -O ec2_init.tgz
+wget https://nachashin.github.io/ec2_init.tgz
 tar xvfz ec2_init.tgz
+sleep 30
 cat $H/.ssh/authorized_keys >> /$H/.ssh/authorized_keys
 cat $H/.bashrc >> /$H/.bashrc
 for f in .inputrc .exrc .vimrc .bash_aliases
