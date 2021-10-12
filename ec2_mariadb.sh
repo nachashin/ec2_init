@@ -30,12 +30,14 @@ EOS
 systemctl restart mariadb
 
 mysql -u root -e "
+    ALTER USER 'root'@'localhost' IDENTIFIED BY '${NEWPASS_ROOT}';
     -- UPDATE mysql.user SET Password=PASSWORD('${NEWPASS_ROOT}') WHERE User='root';
-    SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${NEWPASS_ROOT}');
-    DELETE FROM mysql.user WHERE User='';
-    DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-    DROP DATABASE test;
-    DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+    -- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${NEWPASS_ROOT}');
+    -- DELETE FROM mysql.user WHERE User='';
+    -- DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+    -- DROP DATABASE test;
+    -- DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+
     CREATE DATABASE IF NOT EXISTS ${WEBDB} DEFAULT CHARACTER SET utf8mb4;
     CREATE USER IF NOT EXISTS ${WEBDBUSER}@localhost IDENTIFIED BY '${NEWPASS_WEB}';
     CREATE USER IF NOT EXISTS ${WEBDBUSER}@${LOCALNET} IDENTIFIED BY '${NEWPASS_WEB}';
