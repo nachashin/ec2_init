@@ -12,7 +12,7 @@ export LOCALIP=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
 export LOCALNET=`echo $LOCALIP | sed -e 's/^\([0-9]*\)\.\([0-9]*\)\.[0-9]*\.[0-9]*$/\1.\2.0.0/g'`
 
 sed -i -e "s/P@ssw0rd123/${NEWPASS_ROOT}/g" /root/.bash_aliases
-echo "alias myweb=\"mysql -u web -p'${NEWPASS_WEB}' ${WEBDBUSER}\"" >> /root/.bash_aliases
+echo "alias myweb=\"mysql -u $WEBDBUSER -p'${NEWPASS_WEB}' ${WEBDB}\"" >> /root/.bash_aliases
 
 cat << EOS > /etc/my.cnf.d/custom.cnf
 [mysqld]
