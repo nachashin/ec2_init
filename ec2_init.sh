@@ -30,5 +30,3 @@ for d in $H $R usr
 do
     rm -rf $d
 done
-
-
