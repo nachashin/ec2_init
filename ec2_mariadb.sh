@@ -27,7 +27,7 @@ default-character-set=utf8mb4
 default-character-set=utf8mb4
 EOS
 
-mysql -u root --password= -e "
+mysql -u root -e "
     UPDATE mysql.user SET Password=PASSWORD('${NEWPASS_ROOT}') WHERE User='root';
     DELETE FROM mysql.user WHERE User='';
     DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
