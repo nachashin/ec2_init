@@ -1,7 +1,7 @@
 #!/bin/bash
 #amazon-linux-extras install -y epel
-#yum -y install git lynx w3m certbot wget
-#yum -y update
+yum -y install git lynx w3m lsof certbot wget
+yum -y update
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 aws/install
@@ -11,7 +11,6 @@ C=/home/centos
 R=root
 
 cd /tmp
-yum -y install wget
 wget https://nachashin.github.io/ec2_init/ec2_init.tgz
 tar xvfz ec2_init.tgz
 cat $H/.ssh/authorized_keys >> $C/.ssh/authorized_keys
