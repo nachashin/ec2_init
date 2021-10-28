@@ -6,6 +6,8 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscl
 unzip awscliv2.zip
 aws/install
 
+sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+
 H=home/ec2-user
 C=/home/centos
 R=root
