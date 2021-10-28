@@ -11,6 +11,7 @@ C=/home/centos
 R=root
 
 cd /tmp
+yum -y install wget
 wget https://nachashin.github.io/ec2_init/ec2_init.tgz
 tar xvfz ec2_init.tgz
 cat $H/.ssh/authorized_keys >> $C/.ssh/authorized_keys
