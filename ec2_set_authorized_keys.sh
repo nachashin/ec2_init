@@ -1,6 +1,6 @@
 #!/bin/bash
 #amazon-linux-extras install -y epel
-yum -y install git lynx w3m lsof certbot wget
+yum -y install git lynx w3m lsof certbot wget vim
 yum -y update
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
